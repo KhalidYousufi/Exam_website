@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آزمون آنلاین</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Welcome Page -->
+    <div id="welcome-page" class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-lg w-full text-center">
+            <div class="mb-8">
+                <div class="w-24 h-24 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto flex items-center justify-center mb-6">
+                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">آزمون آنلاین</h1>
+                <p class="text-gray-600 text-lg mb-6">به آزمون آنلاین خوش آمدید. این آزمون شامل سوالات چندگزینه‌ای است.</p>
+                <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                    <p class="text-blue-800 text-sm">
+                        <span class="font-bold">نکات:</span>
+                        <br>• به هر سوال فقط یک پاسخ دهید
+                        <br>• پس از انتخاب گزینه، دکمه بعدی را بزنید
+                        <br>• در پایان نتیجه آزمون نمایش داده می‌شود
+                    </p>
+                </div>
+            </div>
+            <button onclick="startQuiz()" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 px-8 rounded-xl font-semibold text-lg hover:from-blue-600 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                شروع آزمون
+            </button>
+        </div>
+    </div>
+
+    <!-- Quiz Page -->
+    <div id="quiz-page" class="min-h-screen flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-2xl w-full">
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-gray-600">سوال <span id="current-question">1</span> از <span id="total-questions">5</span></span>
+                    <span class="text-sm font-medium text-blue-600"><span id="progress-percent">0</span>%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div id="progress-bar" class="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Question -->
+            <div id="question-container">
+                <h2 id="question-text" class="text-xl md:text-2xl font-bold text-gray-800 mb-8 leading-relaxed"></h2>
+                
+                <!-- Options -->
+                <div id="options-container" class="space-y-4">
+                    <!-- Options will be dynamically added here -->
+                </div>
+
+                <!-- Error Message -->
+                <p id="error-message" class="text-red-500 text-sm mt-4 hidden">لطفاً یک گزینه را انتخاب کنید!</p>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between mt-8">
+                    <button id="next-btn" onclick="nextQuestion()" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 px-8 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                        بعدی
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Page -->
+    <div id="result-page" class="min-h-screen flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-lg w-full text-center">
+            <div id="result-icon" class="w-24 h-24 rounded-full mx-auto flex items-center justify-center mb-6">
+                <!-- Icon will be dynamically added -->
+            </div>
+            <h2 id="result-title" class="text-3xl font-bold mb-4"></h2>
+            <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                <p class="text-gray-600 text-lg mb-2">امتیاز شما:</p>
+                <p id="score-display" class="text-5xl font-bold text-blue-600"></p>
+                <p id="score-detail" class="text-gray-500 mt-2"></p>
+            </div>
+            <p id="result-message" class="text-gray-700 text-lg mb-8"></p>
+            <button onclick="restartQuiz()" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 px-8 rounded-xl font-semibold text-lg hover:from-blue-600 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                شروع مجدد آزمون
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
